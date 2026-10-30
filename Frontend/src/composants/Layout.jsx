@@ -1,7 +1,6 @@
 // Link : lien sans rechargement ; Outlet : emplacement de la page affichée
-import { useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router";
-import { UserContext } from "../Contexte/UserContext.jsx";
+import { useAuth } from "../Contexte/useAuth.js";
 import styles from "./Layout.module.css";
 
 // Mise en page commune à toutes les pages : en-tête + contenu + pied de page
@@ -9,7 +8,7 @@ function Layout() {
   // useNavigate() renvoie une fonction pour changer de page depuis le code
   const navigate = useNavigate();
 
-  const { utilisateur, deconnecter } = useContext(UserContext);
+  const { utilisateur, deconnecter } = useAuth();
 
   // Déconnexion : oublie l'utilisateur et son panier, retour à la connexion
   const deconnexion = () => {

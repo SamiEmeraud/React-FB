@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Navigate } from "react-router";
-import { UserContext } from "../Contexte/UserContext.jsx";
+import { useAuth } from "../Contexte/useAuth.js";
 import BarreRecherche from "./BarreRecherche.jsx";
 import Produit from "./Produit.jsx";
 import styles from "./Boutique.module.css";
 
 function Boutique() {
 
-  const { utilisateur, ajouter } = useContext(UserContext);
+  const { utilisateur, ajouter } = useAuth();
 
   // ===== useState =====
   const [produits, setProduits] = useState([]);

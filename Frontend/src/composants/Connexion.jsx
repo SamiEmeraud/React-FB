@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { UserContext } from "../Contexte/UserContext.jsx";
+import { useState } from "react";
+import { useAuth } from "../Contexte/useAuth.js";
 import { Link, useNavigate } from "react-router";
 import styles from "./Connexion.module.css";
 
@@ -16,7 +16,7 @@ function Connexion() {
 
   const navigate = useNavigate();
  
-  const { connecter } = useContext(UserContext);
+  const { connecter } = useAuth();
 
 
   const handleChange = (e) => {

@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { Link, Navigate } from "react-router";
-import { UserContext } from "../Contexte/UserContext.jsx";
+import { useAuth } from "../Contexte/useAuth.js";
 import styles from "./Accueil.module.css";
 
 // Page d'accueil affichée juste après la connexion
 function Accueil() {
-  // ===== useContext =====
+  // ===== useAuth (hook personnalisé qui lit le contexte) =====
   // Utilisateur connecté ({ id, prenom } ou null), fourni par UserProvider
-  const { utilisateur } = useContext(UserContext);
+  const { utilisateur } = useAuth();
 
   // Pas connecté : retour à la page de connexion
   // <Navigate> redirige dès qu'il est affiché : c'est une protection de la page

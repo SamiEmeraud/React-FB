@@ -1,12 +1,12 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 import { Link, Navigate } from "react-router";
-import { UserContext } from "../Contexte/UserContext.jsx";
+import { useAuth } from "../Contexte/useAuth.js";
 import styles from "./Panier.module.css";
 
 // Page Panier (/panier) : récapitulatif de commande
 function Panier() {
 
-  const { utilisateur, panier, retirer } = useContext(UserContext);
+  const { utilisateur, panier, retirer } = useAuth();
 
   // ===== useMemo =====
   
